@@ -1,0 +1,895 @@
+# ==============================================================================
+# GLOSSARY
+# ==============================================================================
+
+circle:
+  title: 원
+  text: __원__ is the set of all points in two dimensions, at a fixed
+    distance (the _radius_) from a given point (the _center_).
+  image: circle.svg
+
+compass:
+  title: Compass
+  text: A __compass__ is a drawing tool used for creating circles or arcs. It
+    consists of two arms – the needle on one end is placed in the center, while
+    pencil on the other end traces out the curve.
+
+word:
+  title: Word
+  text: A word is a single distinct meaningful element of speech or writing.
+
+receptive-field:
+  title: Receptive field
+  text: The receptive field of a neuron is the set of neurons whose values
+    contribute to that neuron's value, based on the architecture of the neural network.
+    For example, the receptive field of a neuron in a dense layer includes the entire
+    preceding layer, while the receptive field of a neuron in a convolutional
+    or subsampling layer is typically much smaller.
+
+command-line:
+  title: Command line
+  text: |
+    A **command-line interface** (CLI) is a way of interacting with a computer using a sequence of commands entered as lines of text. Each typed command is submitted to the command line application by pressing "enter" and is run by the computer.
+
+    On macOS, the command-line application is called *Terminal* and may be opened by spotlighting "Terminal" (do ⌘-spacebar and start typing "Terminal").
+
+    The language for the Windows CLI is quite different from the standard one for macOS/Linux. We recommend ins
+    talling the [Git Bash](https://gitforwindows.org) emulator so that you can learn to operate the command line in a cross-platform way.
+
+int:
+  title: int
+  text: the standard integer type in Python
+
+float:
+  title: float
+  text: the standard Python type for floating point numbers
+
+str:
+  title: str
+  text: |
+    The standard Python type for textual data
+
+    ``` python
+    myString = "Hello world!"
+    myString[0] # returns "H"
+    myString[3:] # returns "lo world!"
+    dir(str) # to see all of the string methods
+    ```
+
+list-math:
+  title: List
+  text: A list is a finite, ordered collection of items. Lists are different from sets because they are ordered and allow elements to be repeated.
+
+list:
+  title: List
+  text: |
+    A mutable data type for storing an ordered sequence of objects.
+
+    ``` python
+    L = [5, "Hello", "world", 6, [1,2,3]]
+    L[0] # returns 5
+    L[4][1] # returns 2
+    ```
+
+listcomp:
+  title: List Comprehension
+  text: |
+    Special syntax for generating lists by mapping and filtering. To remove the elements of _{code}L_ not satisfying a condition _{code}cond_ and apply a function _{code}f_ to the remaining elements:
+
+    _{pre}[f(x) for x in L if cond(x)]_
+
+    The _{code}if_ clause may be omitted.
+
+    _{pre}[x**2 for x in range(5)
+            if x % 2 == 0]_
+
+    returns _{code}[0, 4, 16]_
+
+arraycomp:
+  title: Array Comprehension
+  text: |
+    Special syntax for generating lists by mapping and filtering. To remove the elements of `{jl} A` not satisfying a condition `{jl} cond` and apply a function `{jl} f` to the remaining elements:
+
+    ```julia
+    [f(x) for x in L if cond(x)]
+    ```
+
+tuple:
+  title: tuple
+  text: |
+    An immutable data type for storing an ordered sequence of objects.
+
+    _{pre}T = (5, "Hello", "world",
+         6, (1,2,3))
+    T[0] # returns 5
+    T[4][1] # returns 2_
+
+function-set:
+  title: Function
+  text: A function from a set $A$ to another set $B$ is an assignment of some element of $B$ to each element in $A$.
+
+function:
+  title: Function
+  text: |
+    A packaged block of related code for performing a specific computation or action. Values to be input are called **parameters**, and they can be given default values:
+
+    _{pre}def add(x, y, z=0):
+        return x + y + z_
+
+    _{pre}add(3,2) # returns 5
+    add(3,2,z=7) # returns 12_
+
+function-julia:
+  title: Function
+  text: |
+    A packaged block of related code for performing a specific computation or action. Values to be input are called **parameters**, and they can be given default values:
+
+    ``` julia
+    function add(x, y; z=0)
+        x + y + z
+    end
+    add(3,2) # returns 5
+    add(3,2,z=7) # returns 12
+    ```
+
+dictionary:
+  title: Dictionary
+  text: |
+    An unordered, mutable data type used for encoding a function whose domain is a finite set.
+
+    For example, if we set
+
+    _{code}D = {'a': 1, 'b': 2, 'c': 3}_,
+
+    then the expression _{code}D['b']_ returns _{code}2_.
+
+dictionary-julia:
+  title: Dictionary
+  text: |
+    An unordered, mutable data type used for encoding a function whose domain is a finite set.
+
+    For example, if we set
+
+    ``` julia
+    D = Dict("a" => 1, "b" => 2, "c" => 3)
+    ```
+
+    then the expression `{jl} D["b"]` returns `{jl} 2`.
+
+method:
+  title: method
+  text: |
+    A function associated with a specific class and called using dot syntax from an instance of that class.
+
+    For exapmle, in _{code}",".join([1,2,3])_, _{code}","_ is a string and _{code}join_ is a method of the string class.
+
+package:
+  title: Package
+  text: A package is a collection of code that is distributed by the authors and may be loaded by a user to extend the functionality of the language.
+
+rounding:
+  title: Floating point representation
+  text: |
+    A real number typically has to be rounded by about $10^{-16}$ times its absolute value to be represented as a float. For example, the difference between $\sqrt{2}$ and the float which is closest to $\sqrt{2}$ is about $9.66 \times 10^{-17}$.
+
+    However, numbers which are rational with a power of 2 in the denominator (including integers) can typically be represented exactly. Exceptions are when the number itself is very large or when the power of 2 in the denominator is very large.
+
+syntax:
+  title: Syntax
+  text: |
+    Syntax refers to the textual **form** of a given construct in a programming language. Examples:
+
+    Indexing: _{code}myList[0], myDict["green"]_
+
+    Named functions: _{code}myFunction(x)_
+
+    Anonymous functions: _{code}lambda x,y: x**y_
+
+    Lists: _{code}[1, 2, 3]_
+
+    Tuples: _{code}(1, 2, 3)_
+
+    Dictionaries: _{code}{"a": 1, "b": 2}_
+
+    Dot syntax: _{code}module.function, object.attribute, object.method()_
+
+immutable:
+  title: Immutable
+  text: |
+    A type is immutable if the values it stores cannot be changed. For example,
+
+    _{pre}T = (1, 2, 3)
+    T[1] = 4_
+
+    throws an error, because tuples are immutable. Changes in mutable data structures can be handled by assigning **new** instances of the type to the variable:
+
+    _{pre}T = (1, 2, 3)
+    T = (T[0], 4, T[2])_
+
+    Dictionaries, lists, and sets are mutable.
+
+linearcombination:
+  title: Linear Combination
+  text: |
+    A **linear combination** of a list of vectors $\mathbf{v}\_1,
+      \ldots, \mathbf{v}\_k$ is an expression of the form
+
+    ``` latex
+    c_1\mathbf{v_1} + c_2\mathbf{v_2}  + \cdots + c_k\mathbf{v_k},
+    ```
+
+     where $c_1, \ldots, c_k$ are real numbers. The $c$'s are called the **weights** of the linear combination.
+
+span:
+  title: Span
+  text: The **span** of a list of vectors is the set of all vectors which can be written as a linear combination of the vectors in the list.
+
+spanning:
+  title: Spanning List
+  text: A spanning list of a vector space $V$ is a list of vectors in $V$ whose span is equal to $V$.
+
+LDL:
+  title: Linear dependence lemma
+  text: A list of vectors is linearly independent if and only if there is no vector in the list which is in the span of the *preceding* vectors.
+
+zerovector:
+  title: Zero Vector
+  text: The zero vector is the vector all of whose entries are zero.
+
+vectorspace:
+  title: Vector Space
+  text: A nonempty set of vectors which is closed under the vector space operations of vector addition and scalar multiplication.
+
+basis:
+  title: Basis
+  text: A **basis** of a vector space $V$ is a linearly independent spanning list of $V$.
+
+dimension:
+  title: Dimension
+  text: The dimenion of a vector space is the number of vectors in any basis of the vector space.
+
+basisequality:
+  title: Basis equality theorem
+  text: |
+    Two linear transformations from $V$ to $W$ which agree on a basis of $V$ agree everywhere on $V$.
+
+    In other words, $L_1(\mathbf{x}) = L_2(\mathbf{x})$ for every $\mathbf{x}$ in a basis of $V$ implies that $L_1(\mathbf{x}) = L_2(\mathbf{x})$ for all $\mathbf{x} \in V$, if $L_1$ and $L_2$ are linear transformations from a vector space $V$ to a vector space $W$.
+
+matrixvectormultiplication:
+  title: Matrix-vector multiplication
+  text: |
+    If $A$ is an $m\times n$ matrix and $\mathbf{x}$ is a column vector in $\mathbb{R}^n$, then $A\mathbf{x}$ is defined to be the linear combination of the columns of $A$ with weights given by the entries of $\mathbf{x}$.
+
+algebraically:
+  title: algebraically
+  text: |
+    Mathematical reasoning is *algebraic* if it involves the manipulation of symbols representing mathematical objects. Algebraic reasoning complements geometric reasoning, which involves figures or other non-symbolic visualizations.
+
+    For example, $(a+b)^2 = a^2 + 2ab + b^2$ may be proved algebraically using the distributive property or geometrically by representing the left side as the area of an $(a+b) \times (a+b)$ square and the right side as the sum of the areas of four rectangles into which the square is divided.
+  image: square-area.svg
+
+geometrically:
+  title: geometrically
+  text: |
+    Mathematical reasoning is *geometric* if it involves spatial representations of the mathematical objects under consideration. Geometric reasoning complements algebraic reasoning, which involves symbolic manipulations.
+
+    For example, $(a+b)^2 = a^2 + 2ab + b^2$ may be proved algebraically using the distributive property or geometrically by representing the left side as the area of an $(a+b) \times (a+b)$ square and the right side as the sum of the areas of four rectangles into which the square is divided.
+  image: square-area.svg
+
+dotproduct:
+  title: Dot Product
+  text: |
+    The **dot product** of two vectors in $\mathbb{R}^n$ is defined by
+
+    ``` latex
+    \mathbf{x} \cdot \mathbf{y} = x_1y_1 + x_2y_2 + \cdots + x_n y_n.
+    ```
+
+potato:
+  title: Potato
+  text: In the context of set theory, a *potato* is a blob which is drawn to visually represent a set. Elements of the set are drawn as points inside the boundary of the blob, and non-elements are drawn outside the blob.
+
+potato-and-arrow:
+  title: Potato-and-arrow Diagram
+  text: A figure which represents sets as blobs and functions as a collection of arrows between the blobs. Each arrow goes from a point in the domain to its image in the codomain.
+
+codomain:
+  title: Codomain
+  text: The **codomain** of a function from one set $A$ to another set $B$ is the set $B$. The codomain must be specified as part of the function's definition, and there is no guarantee that every element of the codomain has any preimages in the domain. Codomain is similar to **range**, but the range of a function includes only those elements of the codomain which have preimages in the domain.
+  image: range.svg
+
+productcolumnrule:
+  title: Product Column Rule
+  text: |
+    Given matrices $A$ and $B$, the $k$th column of $AB$ is the product of $A$ and the $k$th column of $B$:
+
+    ``` latex
+    AB &= A[\begin{array}{cccc}\mathbf{b}_1 & \mathbf{b}_2 & \cdots & \mathbf{b}_n\end{array}] \\
+    &= [\begin{array}{cccc} A\mathbf{b}_1 & A\mathbf{b_2} & \cdots & A\mathbf{b}_n\end{array}],
+    ```
+
+transpose:
+  title: Transpose
+  text: |
+    The **transpose** $A'$ of a matrix $A$ is the matrix obtained by switching the rows and columns of $A$.
+
+    For example, if $A = \begin{bmatrix}
+      	1 & 2 & 3 \\\\\\
+      	4 & 5 & 6
+      \end{bmatrix},$ then $A' =\begin{bmatrix}
+      	1 & 4 \\\\\\
+      	2 & 5 \\\\\\
+      	3 & 6
+      \end{bmatrix}.$
+
+matrixproductdot:
+  title: Matrix product dot formula
+  text: |
+    The (i,j)th entry of the product of two matrices $A$ and $B$ is equal to the dot product of the $i$th row of $A$ and the $j$th column of $B$.
+
+blockmatrixproduct:
+  title: Block Matrix Product Formula
+  text: |
+    Block matrices can be multiplied using the matrix product dot formula, treating the blocks as entries:
+
+    ``` latex
+    \begin{bmatrix}
+      A & B \\\ C & D
+    \end{bmatrix}\begin{bmatrix}
+      E & F \\\ G & H
+    \end{bmatrix} = \begin{bmatrix}
+      AE + BG & AF + BH \\\ CE + DG & CF + DH
+    \end{bmatrix},
+    ```
+
+gram:
+  title: Gram matrix
+  text: "The **Gram matrix** of a matrix $A$ is $A'A$. The Gram matrix is analogous to the square of a real number: a square is nonnegative, while a Gram matrix is positive semidefinite. You can square root a number's square to get a number which is either the same as the original number or the same after multiplication by $-1$, and you can square root the Gram matrix of $A$ to get a matrix which is the same as $A$ after multiplication by some rotation/reflection matrix (that is, an orthogonal matrix)."
+
+diagonalize:
+  title: Diagonalize
+  text: To *diagonalize* a matrix $A$ is to represent it in the form $PDP^{-1}$, where $D$ is a diagonal matrix. A diagonalizable matrix scales space along the directions represented by the columns of $P$, with scale factors given by the diagonal entries of $D$.
+
+spectraltheorem:
+  title: Spectral Theorem
+  text: A matrix is orthogonally diagonalizable if and only if it's symmetric.
+
+orthogonal-complement:
+  title: Orthogonal Complement
+  text: The **orthogonal complement** $V^\perp$ of a vector space $V\subset \mathbb{R}^n$ is the set of vectors in $\mathbb{R}^n$ which are orthogonal to every vector in $V$.
+
+extensiontheorem:
+  title: Extension Theorem
+  text: Any list of linearly independent vectors in a vector space $V$ can be extended to obtain a basis of $V$.
+
+trimmingtheorem:
+  title: Trimming Theorem
+  text: A list of vectors which spans $V$ may be trimmed to obtain a basis of $V$.
+
+dotproductcosine:
+  title: Dot Product Cosine Formula
+  text: If $\mathbf{u}$ and $\mathbf{v}$ are vectors which meet an angle $\theta$, then $\mathbf{u} \cdot \mathbf{v} = |\mathbf{u}||\mathbf{v}| \cos\theta$.
+
+svdfigure:
+  title: SVD Figure
+  text: SVD Figure
+  image: svd.svg
+  link: /content/linear-algebra/singular-value-decomposition#svdfig
+
+fullrank:
+  title: Full rank
+  text: A matrix has **full rank** if its rank is as large as allowed by its dimension. In other words, a matrix has full rank if its rank is equal to its number of rows or number of columns, whichever is smaller.
+
+norm:
+  title: Norm
+  text: The **norm** of a vector is the distance from its tail to its head. It may be computed as the square root of the sum of the squares of the components of the vector.
+
+rankdeficient:
+  title: Rank deficient
+  text: A matrix is rank deficient if it is not full rank. Rank deficiency implies linearly dependent columns and linearly dependent rows.
+
+multiple-extension:
+  title: Multiple extension principle
+  text: If a basis of the intersection of two vector spaces is extended separately to bases of the two vector spaces, then the resulting compiled list of basis vectors is linearly independent.
+
+predicate:
+  title: Predicate
+  text: An true/false assertion about the state of the world.
+
+discreteRV:
+  title: Discrete random variable
+  text: A random variable is **discrete** if its range is finite or countably infinite.
+
+positivelybuoyant:
+  title: Positively buoyant
+  text: An object is positively buoyant if it is lighter than the fluid it's in. If a positively buoyant object is submerged and released, it will rise to the surface. A negatively buoyant object will sink.
+
+respectively:
+  title: Respectively
+  text: |
+    *Respectively* means *in the given order*. For example, the sentence "Alice and Bob wore a green and a blue shirt, respectively." means that Alice wore a green shirt and Bob wore a blue shirt.
+
+indicator:
+  title: Indicator random variable
+  text: |
+    The **indicator** of an event $E$ is the random variable which returns 1 for each $\omega$ in $E$ and returns 0 for every other $\omega$.
+
+independence-product:
+  title: Independence product formula
+  text: |
+    If $X$ and $Y$ are independent random variables, then $\mathbb{E}[XY] = \mathbb{E}[X]\mathbb{E}[Y]$. If $A$ and $B$ are independent events, then $\mathbb{P}(A \cap B) = \mathbb{P}(A)\mathbb{P}(B)$.
+
+bernoulli:
+  title: Bernoulli
+  text: |
+    The Bernoulli distribution with parameter $p \in [0,1]$ is the distribution which assigns mass $p$ to 1 and mass $1-p$ to 0. When $p = 1/2$, we call this distribution the *fair coin flip distribution*.
+
+measure:
+  title: Probability Measure
+  text: |
+    A **probability measure** (or *probability distribution*) puts one of unit probability mass on the number line.
+
+    The mass might be concentrated at individual points, in which case the measure is specified by a *probability mass function*. For example, a measure might put a mass of 1/10 at each of the points $\\{1, 2, \\ldots, 10\\}$.
+
+    Alternatively, the mass might be spread out over an interval, in which case the measure is specified by a *probability density function*. For example, a measure might spread the mass out uniformly over $[0,10]$, with a density of 1/10 at each point.
+
+poisson:
+  title: Poisson Distribution
+  text: |
+    The **Poisson distribution** with parameter $\lambda$ is the probability measure on $\\{0, 1, 2, \\ldots\\}$ with probability mass function  $m_\\lambda(k) = \\frac{\\mathrm{e}^{-\\lambda}\\lambda^k}{k!}$
+
+    The Poisson distribution appears in many real-life phenomena, because it approximately describes the number of successes in a large number of independent random trials with a small probability of success for each trial. The parameter $\\lambda$ represents the product of the success probability and the number of trials.
+
+    For example, the number of deaths by horse kick in the Prussian army cavalry corps was approximately Poisson distributed: there were many soldiers, and each had a small probability of being fatally kicked by a horse.
+  image: poisson.svg
+
+traverse:
+  title: Traverse
+  text: |
+    To **traverse** a set is to visit each of its elements once.
+
+bruno:
+  title: Bruno
+  text: |
+    Bruno is the bear in the bottom right corner of your screen.
+
+model:
+  title: Model
+  text: A *model* is a mathematical object which describes relationships between random quantities in a data-generating process.
+
+partial-sum:
+  title: Partial sum
+  text: |
+    The $n$th partial sum of the infinite series $x_1 + x_2 + \cdots$ is $S_n = x_1 + x_2 + \cdots + x_n$.
+
+linearize:
+  title: Linearize
+  text: To **linearize** a differentiable function at a point is to treat it as though it were a linear function (specifically, its best linear approximation) near that point.
+
+clairaut:
+  title: Clairaut's theorem
+  text: Suppose $f:D \to \mathbb{R}$, where $D$ is a disk in $\mathbb{R}^2$. If $\partial_x \partial_y f$ and $\partial_y \partial_x f$ exist and are continuous, then $\partial_x \partial_y f = \partial_y \partial_x f$ throughout $D$.
+
+directional-derivative:
+  title: Directional derivative
+  text: |
+    The derivative of a funtion $f$ in the $\mathbb{u}$ direction is given by $\nabla f\cdot \mathbf{u}$.
+
+    There is therefore one direction in which $f$ increases most rapidly (the direction of $\nabla f$), and it increases in every direction which makes an acute angle with $\nabla f$.
+
+chain-rule:
+  title: Chain Rule
+  text: |
+    The derivative of a composition of differentiable functions is the product of the derivatives of the functions (evaluated at the relevant points): $(f(g(x)))' = f'(g(x))g'(x)$.
+
+positive-definite:
+  title: Positive definite
+  text: A **positive definite** matrix $A$ is a symmetric matrix whose eigenvalues are all positive. A **positive semidefinite** matrix $A$ is a symmetric matrix whose eigenvalues are all nonnegative. Equivalently, a matrix $A$ is positive semidefinite if $\mathbf{x}' A \mathbf{x} \ge 0$ for all $\mathbf{x}$.
+
+directory:
+  title: Directory
+  text: Another term for *folder* in an operating system
+
+unix-run:
+  title: Run
+  text: To *run* a command in Unix, you type it or paste it into the command line and press the return key.
+
+executable:
+  title: Executable
+  text: An executable is a file that can be run by the operating system.
+
+bash-options:
+  title: Options
+  text: |
+    A bash **option** is an argument which is supplied to a bash command to modify the way it runs. For example, `{sh}ls` list the files in a directory, and `{sh}ls -l` lists them in long form (including more information about each file).
+
+    Single-letter options usually begin with one dash, while longer option names usually begin with two dashes.
+
+hidden-directory:
+  title: Hidden Directory
+  text: A directory whose name begins with `{sh} .` is hidden by default on Unix systems. This means that it doesn't show up in your operating system's file browser (unless you do `{sh} command-shift-.`, on macOS), and it isn't listed when you run `{sh} ls` at the command line (unless you supply the flag `{sh} -a` to see *all* files).
+
+hash:
+  title: Hash
+  text: |
+    A **hash function** is any function that maps data of arbitrary size to data of fixed size.
+
+    Hash functions often have two additional properties:
+
+      (1) Even small changes to the input usually result in substantial changes to the output. For example, the SHA-1 hash function maps "The quick brown fox jumps over the lazy dog" to 2fd4e1c67a2d28fced849ee1bb76e7391b93eb12 and "The quick brown fox jumps over the lazy **c**og" to de9f2c7fd25e1b3afad3e85a0bd17d9b100db4b3.
+
+      (2) It's computationally challenging to invert the function. Hash functions with this property are useful for cryptographic purposes (such as verifying the integrity of a file downloaded from the internet).
+
+git-clone:
+  title: Git Clone
+  text: |
+    Create a local copy of a remote Git repository.
+
+    For example, running `{sh} git clone git@github.com:data- gymnasia/python-binder.git` puts a directory called `{sh} python-binder` in the current directory. The directory contains the latest version of the repository files, along with a `{sh} .git` subdirectory that contains the commit history of the project. The URL for a GitHub repository is available under the green *Clone or Download* pulldown on the repository page.
+
+binary-file:
+  title: Binary File
+  text: |
+    A **text file** is a file whose contents are stored as text, and a **binary file** is a file which is not a text file.
+
+    For example, a C program is specified in a text file and then *compiled* to an executable file that the computer can run. The executable is binary.
+
+    We say that "binaries are available" for a given unit of software if users can download executable files to run the software. The alternative is that only the source code is available for download, and the user must "build from source" on their own computer before they can run the software.
+
+YAML:
+  title: YAML
+  text: |
+    YAML stands for "yet another markup language" and is commonly used format for configuration files. Here's an example YAML file:
+
+    ``` yaml
+    receipt:     Oz-Ware Purchase Invoice
+    date:        2019-07-04
+    customer:
+        first_name:   Dorothy
+        family_name:  Gale
+
+    items:
+        - part_no:   A4786
+          descrip:   Water Bucket (Filled)
+          price:     1.47
+          quantity:  4
+
+        - part_no:   E1628
+          descrip:   High Heeled "Ruby" Slippers
+          size:      8
+          price:     133.7
+          quantity:  1
+    ```
+
+lingua-franca:
+  title: Lingua Franca
+  text: A *lingua franca* is a language which is popular enough in a given community that knowledge of it is typically assumed within that community.
+
+REPL:
+  title: REPL
+  text: A *REPL*, or *read-eval-print-loop*, is a programming environment which takes user input at a command prompt, evaluates it, prints any results, and gives the user another prompt for further input.
+
+refactoring:
+  title: Refactoring
+  text: |
+    **Code refactoring** is changing the structure of a unit of code without changing its effect. For example, the lines
+
+    ``` python
+    root1 = (-b + sqrt(b^2-4*a*c))/(2*a)
+    root2 = (-b - sqrt(b^2-4*a*c))/(2*a)
+    ```
+
+    might be refactored into
+
+    ``` python
+    Δ = b^2-4*a*c
+    root1 = (-b + sqrt(Δ))/(2*a)
+    root2 = (-b - sqrt(Δ))/(2*a)
+    ```
+
+linting:
+  title: Linting
+  text: |
+    A **code linter** takes a program as input and identifies opportunities to improve the code's style.
+
+    For example, a linter might suggest replacing `{py} x=3` with `{py} x = 3`.
+
+vscode-install:
+  title: Installing from the VS Code Marketplace
+  text: To install an extension from the Marketplace, click the square icon on the left edge of your window. Search for the desired extension and select "Install".
+
+vscode-jupyter-option:
+  title: VS Code Jupyter kernel
+  text: Python code execution in VS Code is done either through an integrated terminal or using a Jupyter notebook kernel running behind the scenes. To activate the Jupyter option, go to the Marketplace, right click the gear icon on the Python extension, and enter "send selection" in the search bar. Check the box for "Send Selection to Interactive Window".
+
+boilerplate:
+  title: Boilerplate
+  text: Chunks of code that are typically used with little modification. Requiring extensive boilerplate is generally considered undesirable, because of the unnecessary code chunk management it imposes on the programmer and its obscuration of what aspects of the program are most important.
+
+de-facto:
+  title: De Facto
+  text: A **de facto standard** is a convention or tool that has achieved dominance by popular acceptance.
+
+use-case:
+  title: Use Case
+  text: A **use case** for a tool or idea is a scenario in which it might be applied.
+
+linus:
+  title: Linus Torvalds
+  text: The creator of both Linux and Git.
+
+reading:
+  title: Tip
+  text: |
+    It's probably a good idea to open this in a new tab now and keep it for reference.
+
+churn:
+  title: Churn
+  text: Customer churn refers to the cessation of a customer's relationship with a company
+
+abtesting:
+  title: A/B Testing
+  text: An **A/B test** is a randomized experiment for assessing the difference between two variations (called A and B). For example, if you want to test whether changing the design of your credit card payment page leads to more completed transactions, you might randomly show half of the customers the new design and measure the transaction completion rates for the two groups.
+
+R:
+  title: R
+  text: R is a popular open source programming language for data science. Python and R are by far the most prominent two programming languages used in data science in industry and academia. R is heavily geared toward statistical applications and is very popular among research statisticians. Python is becoming increasingly popular in industry, where it benefits from its closer ties to the software development world.
+
+iris:
+  title: Iris dataset
+  text: The Iris dataset records 4 measurements (sepal length, sepal width, petal length, and petal width) for 50 flowers from each of three different species. The data set has become a staple of introductory data analysis materials.
+
+hadley:
+  title: Hadley Wickham
+  text: Hadley Wickham is the Chief Scientist at RStudio. He created an influential visualization library in R based on the *grammar of graphics* idea, which emphasizes a core set of building blocks and principled ways to combine them into more complex graphics. He also created several other packages applying similar ideas to data manipulation. This suite of packages, called the *tidyverse*, has become the de facto standard for data visualization and manipulation in R.
+
+python-sets:
+  title: Sets
+  text: In Python, a `{py} set` is a data structure with efficient support for insertion, deletion, and membership checking. As in math, elements of a sets are unordered and repetitions are ignored. The basic set operations for two sets `{py} s` and `{py} t` are `{py} s & t` for intersection, `{py} s | t` for union, `{py} s - t` for set difference (elements in the first set but not the second), and `{py} s ^ t` for symmetric difference (elements in exactly one of the two sets).
+
+array:
+  title: Array
+  text: |
+    An array is a grid of values, indexed by a tuple of integers. The length of the indexing tuple is called the **dimension** of the array.
+
+    A one-dimensional array is a vector, a two-dimensional aray is a matrix, and so on.
+
+allocation:
+  title: Allocation
+  text: To store an array or other data structure, the computer must **allocate** memory for it and insert the appropriate data. For example, when you execute `{py} pos_inds = (a > 0)` where `{py} a` is a NumPy array of length 1,000,000, one million new memory addresses are dedicated to storing the entries of `{py} pos_inds`, and those bytes are filled with `{py} True`s and `{py} False`s. Depending on what you want to do with `{py} pos_inds`, this operation might be wasteful.
+
+splat:
+  title: Splatting
+  text: "In Python, you can supply the contents of a list as arguments to a function by putting an asterisk in front of the list name when calling the function. For example `{py} f(*[1,2,3])` is the same as `{py} f(1,2,3)`. Likewise, you can supply the contents of a dictionary as keyword arguments. For example, `{py} f(**{'a': 1, 'b': 2})` is the same as `{py} f(a=1,b=2)`. This is useful when want to manage arguments programatically rather than having to type them in when you call the function."
+
+mpl3d:
+  title: 3D in Matplotlib
+  text: Matplotlib does not support true 3D graphics. You can make 3D figures, but for every pair of objects in the scene, one will be rendered entirely in front of the other. This leads to inaccuracies if the scene is relatively complex. See the Matplotlib [FAQ page](https://matplotlib.org/mpl_toolkits/mplot3d/faq.html) for more details.
+
+IQR:
+  title: Inter-quartile range
+  text: The inter-quartile range of a list of real numbers is the difference between the third and first quartiles.
+
+expectation:
+  title: Expectation
+  text: |
+    The **expectation** $\mathbb{E}[X]$ (or **mean** $\mu\_X$) of a random variable $X$ is the probability-weighted average of $X$:
+
+    ``` latex
+    \mathbb{E}[X] = \sum_{\omega \in \Omega} X(\omega) m(\omega)
+    ```
+
+    The expectation of $X$ can be thought of as the balance point of the distribution of $X$: if we think of the probability mass as physical mass, then the expectation is the location on the number line where we could support it and make it balance.
+  image: expectation-midpoint.svg
+
+variance:
+  title: Variance
+  text: |
+    The variance of a random variable $X$ is a measure of how spread out the distribution of $X$ is:
+
+    ``` latex
+    \operatorname{Var} X = \mathbb{E}[(X - \mathbb{E}[X])^2].
+    ```
+
+    The standard deviation $\sigma(X)$ of $X$ is the square root of the variance:
+
+    ``` latex
+    \sigma(X) = \sqrt{\operatorname{Var} X}.
+    ```
+
+  image: variance-compare.svg
+
+conditional-distribution:
+  title: Conditional distribution
+  text: |
+    The conditional distribution of $Y$ given $X=x$ describes your knowledge of $Y$ given only the information that $X = x$. For example, if you know that $(X,Y)$ is equal to $(0,11)$, $(1,11)$, or $(1,12)$ with probabilities 1/5, 1/5, and 3/5, then the conditional distribution of $Y$ given $X = 1$ has a mass of 1/4 on 11 and 1/4 on 12.
+
+    Grpahically, the conditional distribution of $Y$ given $X = x$ is the probability measure which describes how the probability mass in the joint distribution of $X$ and $Y$ is distributed along the vertical line at position $x$. For example, conditional distribution of $Y$ given $X = x$ is a Gaussian distribution with variance whose mean generally increases as $x$ increases between 0 and 15 and whose variance is equal to 1.5 for all $x$.
+
+  image: exam-density.svg
+
+conditional-expectation:
+  title: Conditional expectation
+  text: The **conditional expectation** of $Y$ given $\\{X=x\\}$ is defined to be the expectation of $Y$ calculated with respect to its conditional distribution given $\\{X=x\\}$.
+
+conditional-variance:
+  title: Conditional variance
+  text: The **conditional variance** of $Y$ given $\\{X = x\\}$ is defined to be the variance of $Y$ with respect to its conditional distribution of $Y$ given $\\{X=x\\}$. This value says how spread out the probability mass is for the joint distribution of $X$ and $Y$ along the vertical line at horizontal position $x$.
+
+monomial:
+  title: Monomial
+  text: A monomial is a polynomial with a single term. For example, the quadratic monomials in $x$ and $y$ are $x^2$, $xy$, $y^2$ and multiples thereof.
+
+geron:
+  title: Hands-on ML
+  text: This section draws some ideas from chapter *End-to-End Machine Learning Project* in the (highly recommended) book *Hands on Machine Learning with Scikit-Learn and TensorFlow* by Aurélien Geron. In that chapter, California housing prices are considered.
+
+anaconda:
+  title: Anaconda
+  text: Anaconda is a distribution of Python which is designed to alleviate some of the difficulties with Python's main package manager `{py} pip` when it comes to managing the sorts of extensive binary dependencies that are common in data science packages.
+
+rpy2:
+  title: rpy2
+  text: |
+    rpy2 is the standard Python package for interfacing with R. For example, the block
+
+    ```python
+    from rpy2.robjects import r, pandas2ri
+    from rpy2.robjects.packages import importr
+    importr('nycflights13')
+    pandas2ri.ri2py(r['flights'])
+    ```
+
+    loads the R package `{r} nycflights13`, accesses the `{r} flights` variable from the R environment, and converts it to a Pandas data frame.
+
+dataframe-head:
+  title: Head
+  text: The **head** of a dataframe is the first several rows. Pandas data frame objects have a `{py} head` method which returns the head. This method is useful when you want to have a look at the data frame but don't want to fill the screen with its many rows.
+
+toy:
+  title: Toy
+  text: A **toy** example is one which is deliberatively oversimplified for illustrative purposes.
+
+bit64:
+  title: 64-bit numeric representations
+  text: The most common numeric types use 64 bits. The number 64 represents a tradeoff how many numbers these systems can represent and the amount of space required to store each one.
+
+bit8:
+  title: Storage of boolean values
+  text: The smallest unit of addressable memory on most computers is one byte (that is, 8 bits). Therefore, even values like booleans which could be stored using fewer bits are usually stored using a full byte.
+
+in-software:
+  title: In software
+  text: A computation can be done *in hardware* if it's programmed in the microprocessor and can be handed to the CPU as an instruction. A computation is done *in software* if it involves orchestrating many such CPU instructions. For example, the calculation `{jl} 144 + 217` in Julia compiles down to a hardware computation. But if you completed a programming exercise that involved parsing an integer value written as a string, expanding according to place value, and adding using the arithmetic rules you learned as a kid, then you'd be doing the same calculation in software.
+
+model-accuracy:
+  title: Model
+  text: Of course, it is always reasonable to question how thoroughly and accurately a given model actually reflects all the relevant considerations.
+
+operatornorm:
+  title: Operator Norm
+  text: The operator norm of a matrix is the maximum factor by which it stretches vectors. It's equal to the largest singular value of the matrix.
+
+pdf:
+  title: Probability Density Function
+  text: Given a continuous probability measure, its **density function** (PDF) is the function that you integrate over each set to find the amount of probability mass associated with that set. For example, the exponential distribution has PDF $f(x) = \operatorname{e}^{-x}$ on $[0,\infty)$.
+
+pmf:
+  title: Probability Mass Function
+  text: Given a discrete probability measure, its probability mass function (PMF) is the function that maps each point $\mathbf{x}$ to the amount of probability mass at that point. For example, the fair coin flip PMF maps 0 and 1 to $\frac{1}{2}$ and every other point to zero.
+
+overflow:
+  title: Overflow
+  text: In 64-bit floating point arithmetic, the largest representable number is $2^{1024} - 2^{971}$, which is about $1.8 \times 10^{308}$. The smallest representable positive number is $2^{-1074} \approx 5 \times 10^{-324}$. When calculations lead to results which are too large or small to be represented, we call those errors *underflow* or *overflow*, respectively.
+
+convex:
+  title: Convex
+  text: |
+    A function is convex if every line segment connecting two points on its graph lies on or above the graph of the function. A function is concave every line segment connecting two points on its graph lies on or *below* the graph of the function.
+
+    Convexity is a desirable property for minimization problems, because any local minimum of a convex function is also a global minimum. Efficient and accurate numerical methods are available for convex optimization.
+
+degrees-of-freedom:
+  title: Degrees of freedom
+  text: |
+    *Degrees of freedom* is the name given to the parameter of the χ²-distribution (which is the distribution of the sum of the squares of $d$ independent standard normal random variables, where $d$ is the number of degrees of freedom) and the t-distribution (which is the distribution of the average of $d$ independent standard normal random variables divided by $S/\sqrt{n}$, where $S$ is the sample variance of the random variables).
+
+statistical-learning:
+  title: Statistical Learning
+  text: |
+    The goal of *machine learning* is to use data to build predictive models. Statistical learning theory is a framework for machine learning which is aimed at drawing conclusions about machine learning models. The terms *machine learning* and *statistical learning* are sometimes used interchangeably, although *machine learning* tends to be associated more with getting models to work well, while *statistical learning* places more emphasis on understanding how and when models can be expected to work well.
+
+dichotomize:
+  title: Dichotomize
+  text: To *dichotomize* a random variable is to map each of its values to one of two categories. For example, if $X$ is the number of cigarettes a person has smoked in the past year, we can split our data points into an $X = 0$ "nonsmoker" category and an $X > 0$ "smoker" category.
+
+inductive-bias:
+  title: Inductive Bias
+  text: |
+    The **inductive bias** of a learner is the set of (implicit or explicit) assumptions that it uses to make predictions based on observed data.
+
+    If the inductive bias is compatible with the underlying probability measure (for example, if a regression function is assumed to be linear and is in fact linear), then it helps the model use data more efficiently. However, inductive bias which is incompatible with the underlying probability measure can lead to large prediction error even as the sample size tends to infinity.
+
+functional:
+  title: Functional
+  text: A **functional** is a function whose domain is a set of functions and whose codomain is $\mathbb{R}$. In other words, a functional takes a function as input and returns a number as output.
+
+hyperparameter:
+  title: Hyperparameter
+  text: A model *hyperparameter* is a parameter which is not adjusted as a part of the model's training. For example, we might fit a degree-$d$ polynomial to a set of training data by finding the coefficents which minimize the empirical mean squared error. The coefficients are parameters, while $d$ is a hyperparameter.
+
+slaters-theorem:
+  title: Slater's Theorem
+  text: "Slater's theorem provides a condition under which strong duality is guaranteed to hold for a convex optimization problem: it says that strong duality holds if the optimization problem has a strictly feasible point (in other words, if the feasible region contains points which are not on its boundary)."
+
+strong-duality:
+  title: Strong Duality
+  text: |
+    *Weak duality*, which is true in general, says that $\max_{\lambda\geq 0} \min_x f(x,\lambda) \leq \min_{x} \max_{\lambda \geq 0} f(x,\lambda)$. We say that **strong duality** holds for a class of functions $f$ if the inequality above holds with no gap: $\max_{\lambda\geq 0} \min_x f(x,\lambda) = \min_{x} \max_{\lambda \geq 0} f(x,\lambda)$.
+
+transition-matrix:
+  title: Transition Matrix
+  text: |
+    A transition matrix on a finite set $\Omega$ is an $|\Omega| \times |\Omega|$ matrix of nonnegative values which sum to 1 along each row. A transition matrix specifies a Markov chain by prescribing via its $(i,j)$th entry the probability of transitioning to state $j$ next given that the current state is $i$.
+
+    More generally, a transition **kernel** specifies a probability measure on $\Omega$ for each element of $\Omega$. A Markov chain currently in state $x$ draws its next state from the measure associated with the point $x$. For example, the kernel $p(x,y) = \frac{1}{\sqrt{2\pi}}\operatorname{e}^{-|x-y|^2/2}$ prescribes a standard multivariate Gaussian jump from the current state $x$.
+
+dot-anonymous-function:
+  title: Dot anonymous function notation
+  text: |
+    The notation $f(x, \cdot)$ means "the function which takes $y$ as input and returns $f(x,y)$ as output". It can also be written as $y\mapsto f(x,y)$.
+
+float64:
+  title: Float64
+  text: |
+    The most common real-number type in modern computers is the 64-bit floating point. Since we can represent at most $2^{64}$ distinct numbers with 64 bits, we choose those numbers based on a desire to represent values ranging from very small to very large with a small and consistent *relative* error.
+
+    Specifically, we represent $2^{52}$ equally spaced numbers in each interval between consecutive powers of $2$, from $[2^{-1022},2^{-1022})$ up to $[2^{1023},2^{1024})$. We also represent $2^{52}$ equally spaced numbers in the interval $[0, 2^{-1022})$, as well as the negations of all of these numbers.
+
+autodiff:
+  title: Automatic Differentiation
+  text: |
+    *Automatic differentiation* is a technique for efficiently and accurately computing numerical derivatives of functions expressed in the form of code. The idea is to substitute into the function a two-field object which uses the chain rule to simultaneously track the value *and* the derivative at that value as each intermediate calculation is performed.
+
+    An autodiff system needs to know how to compute derivatives for any basic function that might be used inside the body of the function being differentiated.
+
+host:
+  title: Host cell
+  text: A **host** is an organism which is infected by a virus.
+
+RNA:
+  title: RNA
+  text: Ribonucleic acid. In all known organisms and many viruses, genetic information is encoded in *DNA*, while RNA serves to mediate the synthesis of proteins. However, in some viruses (including SARS-CoV-2), genetic information is encoded in RNA.
+
+viral-envelope:
+  title: Viral envelope
+  text: For most viruses, the structure of a virion includes a protective outer layer called a **viral envelope**. The envelope fuses with the host cell membrane to allow the genetic material to enter the host cell and infect it.
+
+virus-alive:
+  title: Virus alive
+  text: We say that a virus is active or inactive, rather than alive or dead, because viruses are not typically considered to be living things (because they lack characteristics typically included in the definition of *life*.)
+
+directed-graph:
+  title: Directed Graph
+  text: A **directed graph** consists of a collection of points together with arrows drawn between them.
+  image: directed-graph.svg
+
+antibody:
+  title: Antibody
+  text: "An antibody is a Y-shaped protein produced by the body to neutralize viruses (Image credit: [Volker Brinkmann / CC BY](https://upload.wikimedia.org/wikipedia/commons/f/f2/Neutrophil_with_anthrax_copy.jpg))"
+  image: antibody.jpg
+
+strain:
+  title: Strain
+  text: A **strain** of a virus is a genetic variant. For example, flu shots target particular strains of the influenza virus. If you are exposed to a different strain of the flu, the shot might not protect you.
+
+herd-immunity:
+  title: Herd Immunity
+  text: If a high enough proportion of the population is immune to a particular infectious disease, then the disease can't spread enough to sustain itself. This is called *herd immunity*.
+
+law-of-large-numbers:
+  title: Law of Large Numbers
+  text: |
+    The **law of large numbers** says that the average of a large number of independent, identically distrbuted random variables is likely to be approximately equal to the expected value of the random variables' common distribution. (More precisely, the average converges to the expected value in probability as the number of random variables being averaged goes to infinity.)
+
+    For example, if we flip a fair coin 1000 times, the number of heads is close to 500 with high probability.
