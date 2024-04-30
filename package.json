@@ -7,7 +7,7 @@
   "license": "CC-BY-2.0",
   "scripts": {
     "server": "mgon-serve ",
-    "assets": "mgon-build --assets --watch ",
+    "assets": "mgon-build --assets --minify ",
     "start": "npm-run-all --parallel assets server"
   },
   "engines": {
