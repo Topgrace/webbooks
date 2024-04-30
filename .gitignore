@@ -26,12 +26,13 @@ nbproject
 .idea
 
 # Folders to ignore
-node_modules
+#node_modules
 server/assets/resources
 content/scratch
 content/conv-architectures/julia
 ts_build
 build
+public
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
@@ -41,3 +42,4 @@ build
 tmp.csv
 tmp.jl
 convert.jl
+node_modules
