@@ -1,9 +1,9 @@
 {
-  "name": "data-gymnasia",
+  "name": "top-key-math",
   "version": "0.4.0",
-  "description": "Data Gymnasia Courses",
-  "homepage": "http://datagymnasia.com",
-  "repository": "data-gymnasia/courses",
+  "description": "Top Key Math Courses",
+  "homepage": "http://mathbus.co.kr",
+  "repository": "Topgrace/webbooks",
   "license": "CC-BY-2.0",
   "scripts": {
     "server": "mgon-serve ",

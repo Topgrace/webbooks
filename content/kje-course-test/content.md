@@ -1,5 +1,5 @@
 
-# 원(Circles) 그리고 파이(Pi)KJE
+# 원(Circles) 그리고 파이(Pi)
 
 > id: intro
 > section: introduction
