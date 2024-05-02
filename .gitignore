@@ -32,7 +32,7 @@ content/scratch
 content/conv-architectures/julia
 ts_build
 build
-#public
+public
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
