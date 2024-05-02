@@ -1,10 +1,10 @@
-siteName: Data Gymnasia
+siteName: Top Key Math
 description: Data science courses developed by Samuel S. Watson and the Brown University Data Science Initiative
 locales: [en, de]
 
 header:
   logo: logo.svg
-  titleString: Data Gymnasia
+  titleString: Top Key Math
 
 search:
   enabled: false
