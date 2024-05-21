@@ -18,18 +18,18 @@ footer:
   rows:
     - links:
         - title: GitHub
-          url: https://github.com/mathigon/textbooks
-        - title: Brown University Data Science Intiative
-          url: https://www.brown.edu/initiatives/data-science/home
+          url: https://mathbus.co.kr/main/
+        - title: Top Key Pub
+          url: https://mathbus.co.kr/main/
         - title: Live Website
-          url: https://mathigon.org/data-gymnasia
+          url: https://mathbus.co.kr/main/
   copyright: CC-BY-2.0 License
 
 social:
   facebook:
-    page: https://www.facebook.com/BrownUniversity
+    page: https://mathbus.co.kr/main/
   twitter:
-    handle: https://twitter.com/BrownUniversity
+    handle: https://mathbus.co.kr/main/
 
 courses:
   showLocked: true
